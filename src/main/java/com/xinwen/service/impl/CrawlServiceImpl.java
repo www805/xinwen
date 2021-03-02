@@ -122,9 +122,10 @@ public class CrawlServiceImpl implements CrawlService {
         UpdateWrapper ew = new UpdateWrapper<>();
         ew.eq("img_file_name", fileName);
 
-        Integer update = imgKuMapper.selectCount(ew);
-        if (update > 0) {
+        ImgKuEntity entity = imgKuMapper.selectOne(ew);
+        if (null != entity) {
             rResult.setMessage("图片已存在");
+            rResult.setData(entity.getImgUrl());
             return rResult;
         }
 
@@ -147,7 +148,7 @@ public class CrawlServiceImpl implements CrawlService {
             imgKuEntity.setImgFileName(fileName);//文件本身的文件名
             imgKuEntity.setImgRecordrealUrl(realpath);//真实存储地址
 
-            update = imgKuMapper.insert(imgKuEntity);
+            int update = imgKuMapper.insert(imgKuEntity);
             if(update > 0){
                 rResult.changeToTrue();
                 rResult.setMessage("上传成功");
