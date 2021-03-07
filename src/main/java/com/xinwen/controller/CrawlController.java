@@ -21,8 +21,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/admin/crawl")
 public class CrawlController {
 
-    @Autowired
-    private RestTemplate restTemplate;
 
 
     @Autowired
@@ -43,43 +41,6 @@ public class CrawlController {
     @PostMapping(value = "/uploadImg")
     public RResult uploadByClientImg(@RequestParam("file") MultipartFile file) {
         return crawlService.uploadByImg(file);
-    }
-
-
-
-    @GetMapping("/caiji")
-    public Object getIndex(){
-
-
-
-        String httpNr = doExchange("https://www.881903.com/api/news/recent", 10, "MjAyMS0wMi0yMSAxMDoxMjowMH4yMzc5ODcz");
-
-        return httpNr;
-    }
-
-
-
-    /**
-     * exchange
-     * @return
-     */
-    public String doExchange(String url, Integer pageNum, String offset){
-        //header参数
-        HttpHeaders headers = new HttpHeaders();
-        String token = "asdfaf2322";
-        headers.add("authorization", token);
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        //放入body中的json参数
-        JSONObject obj = new JSONObject();
-        obj.put("limit", pageNum);
-        obj.put("offset", offset);
-
-        //组装
-        HttpEntity<JSONObject> request = new HttpEntity<>(obj, headers);
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.GET, request, String.class);
-        String body = responseEntity.getBody();
-        return body;
     }
 
 

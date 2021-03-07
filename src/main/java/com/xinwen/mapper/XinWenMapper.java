@@ -3,6 +3,8 @@ package com.xinwen.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xinwen.common.entity.XinWenEntity;
 
+import java.util.List;
+
 /**
  * com.xinwen.mapper
  *
@@ -11,5 +13,7 @@ import com.xinwen.common.entity.XinWenEntity;
  */
 public interface XinWenMapper extends BaseMapper<XinWenEntity> {
 
+
+    List<String> getXinWenType();
 
 }

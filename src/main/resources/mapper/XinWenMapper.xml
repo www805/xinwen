@@ -14,5 +14,8 @@
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <select id="getXinWenType" resultType="string">
+        select type from xinwen group by type
+    </select>
 
 </mapper>
