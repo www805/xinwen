@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试flex</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="description" content="最权威的新闻网">
+    <meta name="keywords" content="粤港澳娱乐新闻网">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/sm.css"
+		media="(max-device-width:500px)">
+	<style type="text/css">
+		.current {
+		    line-height: 40px;
+		    color: #7f7f7f;
+		    background: #F6F6F6!important;
+		    font-size: 20px;
+		}
+
+		@media only screen and (min-width: 501px) { 
+			.zhong_right_search{
+				margin-top: 10px;
+			}
+
+
+
+		}
+
+		@media only screen and (max-width: 500px) { 
+		    
+			.top{
+				width: 100%;
+				position: fixed;
+				top: 0;
+				background-color: #00599F;
+			}
+			.top_nav{
+				display: none;
+			}
+			.top_logo{
+				height: 60px;
+				font-size: 18px;
+				color: #fff;
+				margin-left: 10px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			.top_nav ul a, .top_logo a{
+				color: #fff;
+			}
+			.top_nav_btn{
+				position: absolute;
+				top: 20px;
+				right: 10px;
+			}
+			.zhong{
+				width: 100%;
+				margin-top: 60px;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap-reverse;
+			}
+			.zhong_left{
+				width: 100%;
+				background-color: #fff;
+			}
+			.zhong_right{
+				width: 100%;
+				/*display: none;*/
+				padding-bottom: 150px;
+			}
+			.zhong_right_search{
+				display: none;
+			}
+			.wz_title h1{
+				font-size: 24px;
+			}
+			.right_item{
+				display: flex;
+				padding: 5px 10px;
+			}
+			.zhong_img img, .right_img img{
+				width: 100%;
+				height: 100%;
+			}
+			.right_img{
+				width: 50%;
+				height: 70px;
+			}
+			.right_nr{
+				width: 72%;
+				position: relative;
+				padding-left: 10px;
+			}
+			.right_nr_time span{
+				font-size: 12px;
+				color: #999;
+				position: absolute;
+				bottom: 0;
+			}
+			.zhong_nr_time{
+				position: relative;
+				margin-top: 5px;
+   				bottom: 0;
+			}
+			.bottom{
+				padding-top: 1px;
+				font-size: 13px;
+			}
+			.top_nav_btn{
+				display: block;
+			}
+			.right_nr b a{
+				width: 180px;
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<div class="top">
+		<div class="top_page">
+			<div class="top_logo">
+				<a href="day001.html">粤港澳娱乐新闻网</a>
+			</div>
+			<div class="top_nav">
+				<ul>
+					<li><a href="javascript:void(0);">首页</a></li>
+					<li><a href="javascript:void(0);">国内新闻</a></li>
+					<li><a href="javascript:void(0);">香港新闻</a></li>
+					<li><a href="javascript:void(0);">国际新闻</a></li>
+				</ul>
+			</div>
+			<button class="top_nav_btn">导航栏</button>
+		</div>
+	</div>
+	<div class="zhong">
+		<div class="zhong_left">
+			<div class="current">
+			  	<p>当前位置：搜索 拜登 的结果</p>
+			</div>
+
+			<div class="zhong_item">
+				<div class="zhong_img">
+					<a href="article.html">
+						<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+					</a>
+				</div>
+				<div class="zhong_nr">
+					<h2 class="title_main">
+						<a href="article.html" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+					</h2>
+					<p class="title_nr" >如果论今年的创业热点，总是绕不开一个现象级产品“”！我身边的很多朋友，包括我自己都在以抖音为核心去赚钱...</p>
+					<p class="zhong_nr_time">
+						<span>发布：1小时前</span>
+						<span>浏览：230</span>
+					</p>
+				</div>
+			</div>
+
+
+			<div class="zhong_item">
+				<div class="zhong_img">
+					<a href="article.html">
+						<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+					</a>
+				</div>
+				<div class="zhong_nr">
+					<h2 class="title_main">
+						<a href="article.html" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+					</h2>
+					<p class="title_nr" >如果论今年的创业热点，总是绕不开一个现象级产品“”！我身边的很多朋友，包括我自己都在以抖音为核心去赚钱...</p>
+					<p class="zhong_nr_time">
+						<span>发布：1小时前</span>
+						<span>浏览：230</span>
+					</p>
+				</div>
+			</div>
+
+			<div class="zhong_item">
+				<div class="zhong_img">
+					<a href="article.html">
+						<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+					</a>
+				</div>
+				<div class="zhong_nr">
+					<h2 class="title_main">
+						<a href="article.html" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+					</h2>
+					<p class="title_nr" >如果论今年的创业热点，总是绕不开一个现象级产品“”！我身边的很多朋友，包括我自己都在以抖音为核心去赚钱...</p>
+					<p class="zhong_nr_time">
+						<span>发布：1小时前</span>
+						<span>浏览：230</span>
+					</p>
+				</div>
+			</div>
+
+			<div style="text-align: center;">
+				<ul class="pagination">
+				  <li><a href="#">«</a></li>
+				  <li><a href="#">1</a></li>
+				  <li><a class="active" href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">»</a></li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="zhong_right">
+			<div class="zhong_right_search" >
+				<form name="formsearch" class="search-form" action="search.html">
+			      <input type="text" class="keyword" name="q" placeholder="输入关键词搜索..." value="">
+			      <button class="right_search_btn" ><a href="search.html" >搜索</a></button>
+			      <!-- <input type="button" class="right_search_btn" value="搜索"> -->
+			    </form>
+			</div>
+			<div class="piece">
+				<h3>推荐新闻</h3>
+				<div>
+
+					<div class="right_item">
+						<div class="right_img">
+							<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+						</div>
+						<div class="right_nr">
+							<b>
+								<a href="/" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+							</b>
+							<p class="right_nr_time">
+								<span>2021-01-19</span>
+							</p>
+						</div>
+					</div>
+
+
+					<div class="right_item">
+						<div class="right_img">
+							<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+						</div>
+						<div class="right_nr">
+							<b>
+								<a href="/" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+							</b>
+							<p class="right_nr_time">
+								<span>2021-01-19</span>
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div/>
+			<div class="piece">
+				<h3>热门标签</h3>
+				<div class="piece_label">
+					<a href="javascript:void(0);">抖音抖音</a>
+					<a href="javascript:void(0);">快手快手</a>
+					<a href="javascript:void(0);">红书红书</a>
+					<a href="javascript:void(0);">抖音</a>
+					<a href="javascript:void(0);">快手</a>
+					<a href="javascript:void(0);">红书</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="bottom">
+		<div>粤港澳娱乐新闻网-热点新闻 国际新闻 娱乐新闻</div>
+		<div>网站内容来自网络，如有侵权请联系我们，立即删除！</div>
+		<div>Copyright © 2021 yuegangaoyl.com 粤港澳娱乐新闻网 - 版权所有 京ICP备88888888</div>
+	</footer>
+</body>
+</html>

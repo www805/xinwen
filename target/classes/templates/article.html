@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>文章页面</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="description" content="最权威的新闻网">
+    <meta name="keywords" content="粤港澳娱乐新闻网">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/sm.css"
+		media="(max-device-width:500px)">
+	<style type="text/css">
+		.wz_main{
+			padding: 5px 10px;
+		}
+		.wz_title{
+			border-bottom: 1px solid #ddd;
+		}
+		.wz_time{
+			color: #7f7f7f;
+			margin-bottom: 5px;
+		}
+		.current {
+		    line-height: 40px;
+		    padding-left: 5px;
+		    color: #7f7f7f;
+		    background: #F6F6F6!important;
+		}
+		.wz_title h1{
+			font-size: 34px;
+		    color: #404040;
+		    font-weight: bold;
+		    margin-bottom: 10px;
+		}
+		.wz_time span{
+			margin-right: 20px;
+		}
+		.wz_nr{
+			margin-top: 10px;
+			font-size: 16px;
+		}
+
+		
+
+		@media only screen and (min-width: 501px) { 
+			.nextpage{
+				overflow: hidden;
+			}
+			.nextpage .lt {
+			    float: left;
+			    display: inline;
+			    overflow: hidden;
+			    width: 320px;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    line-height: 32px;
+			}
+			.nextpage .rt {
+			    float: right;
+			    display: inline;
+			    overflow: hidden;
+			    width: 320px;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    line-height: 32px;
+			}
+			.zhong_right_search{
+				margin-top: 10px;
+			}
+
+
+		}
+		@media only screen and (max-width: 500px) { 
+		    
+			.top{
+				width: 100%;
+				position: fixed;
+				top: 0;
+				background-color: #00599F;
+			}
+			.top_nav{
+				display: none;
+			}
+			.top_logo{
+				height: 60px;
+				font-size: 18px;
+				color: #fff;
+				margin-left: 10px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			.top_nav ul a, .top_logo a{
+				color: #fff;
+			}
+			.top_nav_btn{
+				position: absolute;
+				top: 20px;
+				right: 10px;
+			}
+			.zhong{
+				width: 100%;
+				margin-top: 60px;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap-reverse;
+			}
+			.zhong_left{
+				width: 100%;
+				background-color: #fff;
+			}
+			.zhong_right{
+				width: 100%;
+				/*display: none;*/
+				padding-bottom: 150px;
+			}
+			.zhong_right_search{
+				display: none;
+			}
+			.wz_title h1{
+				font-size: 24px;
+			}
+			.right_item{
+				display: flex;
+				padding: 5px 10px;
+			}
+			.zhong_img img, .right_img img{
+				width: 100%;
+				height: 100%;
+			}
+			.right_img{
+				width: 50%;
+				height: 70px;
+			}
+			.right_nr{
+				width: 72%;
+				position: relative;
+				padding-left: 10px;
+			}
+			.right_nr_time span{
+				font-size: 12px;
+				color: #999;
+				position: absolute;
+				bottom: 0;
+			}
+			.bottom{
+				padding-top: 1px;
+				font-size: 13px;
+			}
+			.top_nav_btn{
+				display: block;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="top_page">
+			<div class="top_logo">
+				<a href="day001.html">粤港澳娱乐新闻网</a>
+			</div>
+			<div class="top_nav">
+				<ul>
+					<li><a href="javascript:void(0);">首页</a></li>
+					<li><a href="javascript:void(0);">国内新闻</a></li>
+					<li><a href="javascript:void(0);">香港新闻</a></li>
+					<li><a href="javascript:void(0);">国际新闻</a></li>
+				</ul>
+			</div>
+			<button class="top_nav_btn">导航栏</button>
+		</div>
+	</div>
+	<div class="zhong">
+		<div class="zhong_left">
+			<div class="current">
+			  	<p>当前位置：<a href="day001.html">首页</a> &gt; <a href="../">国际新闻</a> &gt; 拜登宣誓上任</p>
+			</div>
+
+			<div class="wz_main">
+				<div class="wz_title">
+					<h1>拜登宣誓上任</h1>
+					<div class="wz_time">
+						时间：<span>2021-01-27 11:58 </span>
+						来源：<span>网络整理 </span>
+						编辑：<span>admin</span>
+					</div>
+				</div>
+				<div class="wz_nr">
+					美国当选总统、民主党人拜登20日在美国首都华盛顿国会山举行的就职典礼上宣誓就任美国第46任总统。
+
+在国会山举行的就职典礼上，78岁的拜登在联邦最高法院首席法官罗伯茨带领下完成宣誓。他随后发表约20分钟的就职演讲，称美国当前面临着新冠疫情肆虐、社会不平等加剧、系统性种族主义问题、气候变化等一系列危机与挑战。拜登呼吁国家团结，同时表示将打击政治极端主义、白人至上主义和国内恐怖主义。美国当选副总统哈里斯当天也宣誓就职，成为美国历史上首位女性副总统。
+
+为防控疫情和防范暴力事件发生，参加此次就职典礼及观礼的人数较以往大幅减少，庆祝游行等多项传统活动也改为在线举行或取消。当天华盛顿戒备森严，五角大楼部署了2.5万名国民警卫队队员协助加强安保。美国各州也纷纷针对可能发生的暴力事件采取防范措施。
+
+卸任总统特朗普打破美国政治惯例，未参加拜登的就职典礼。他于20日一早离开白宫，前往在佛罗里达州海湖庄园的住所。此前因涉嫌煽动国会山骚乱，特朗普再遭国会众议院弹劾，成为历史上首位任内两遭弹劾的美国总统。
+
+就职·政令
+
+拜登宣布将重返《巴黎协定》
+				</div>
+				<div class="nextpage">
+			      <div class="lt">上一篇：<a href="/">墨西哥各界反对美国钢铝关税措施</a>  </div>
+			      <div class="rt">下一篇：没有了 </div>
+			    </div>
+				<div>
+					相关推荐
+
+				</div>
+			</div>
+
+			<div style="padding-top:10px;background-color: rgb(246, 246, 246) !important;">
+				<div style="background-color: #fff;padding:10px;">
+					<p class="suiji-lable">随机新闻</p>
+					<div class="xinwen_list">
+
+						
+						<div class="xinwen_item">
+							<a href="javascript:void(0);">
+								<div class="xinwen_img">
+									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+								</div>
+								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p class="xinwen_bottom_type_time">
+									<span class="xinwen_type_name">国际</span>
+									<span class="xinwen_type_time">2021-02-05</span>
+								</p>
+							</a>
+						</div>
+
+						<div class="xinwen_item">
+							<a href="javascript:void(0);">
+								<div class="xinwen_img">
+									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+								</div>
+								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p class="xinwen_bottom_type_time">
+									<span class="xinwen_type_name">国际</span>
+									<span class="xinwen_type_time">2021-02-05</span>
+								</p>
+							</a>
+						</div>
+						
+						<div class="xinwen_item">
+							<a href="javascript:void(0);">
+								<div class="xinwen_img">
+									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+								</div>
+								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p class="xinwen_bottom_type_time">
+									<span class="xinwen_type_name">国际</span>
+									<span class="xinwen_type_time">2021-02-05</span>
+								</p>
+							</a>
+						</div>
+
+						<div class="xinwen_item">
+							<a href="javascript:void(0);">
+								<div class="xinwen_img">
+									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+								</div>
+								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p class="xinwen_bottom_type_time">
+									<span class="xinwen_type_name">国际</span>
+									<span class="xinwen_type_time">2021-02-05</span>
+								</p>
+							</a>
+						</div>
+
+						<div class="xinwen_item">
+							<a href="javascript:void(0);">
+								<div class="xinwen_img">
+									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+								</div>
+								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p class="xinwen_bottom_type_time">
+									<span class="xinwen_type_name">国际</span>
+									<span class="xinwen_type_time">2021-02-05</span>
+								</p>
+							</a>
+						</div>
+
+						<div class="xinwen_item">
+							<a href="javascript:void(0);">
+								<div class="xinwen_img">
+									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+								</div>
+								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p class="xinwen_bottom_type_time">
+									<span class="xinwen_type_name">国际</span>
+									<span class="xinwen_type_time">2021-02-05</span>
+								</p>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="zhong_right">
+			<div class="zhong_right_search" >
+				<form name="formsearch" class="search-form" action="search.html">
+			      <input type="text" class="keyword" name="q" placeholder="输入关键词搜索..." value="">
+			      <button class="right_search_btn" ><a href="search.html" >搜索</a></button>
+			      <!-- <a href="search.html" ><input type="button" class="right_search_btn" value="搜索"></a> -->
+			    </form>
+			</div>
+			<div class="piece">
+				<h3>推荐新闻</h3>
+				<div>
+
+					<div class="right_item">
+						<div class="right_img">
+							<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+						</div>
+						<div class="right_nr">
+							<b>
+								<a href="/" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+							</b>
+							<p class="right_nr_time">
+								<span>2021-01-19</span>
+							</p>
+						</div>
+					</div>
+
+
+					<div class="right_item">
+						<div class="right_img">
+							<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+						</div>
+						<div class="right_nr">
+							<b>
+								<a href="/" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+							</b>
+							<p class="right_nr_time">
+								<span>2021-01-19</span>
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="piece">
+				<h3>热门标签</h3>
+				<div class="piece_label">
+					<a href="javascript:void(0);">抖音抖音</a>
+					<a href="javascript:void(0);">快手快手</a>
+					<a href="javascript:void(0);">红书红书</a>
+					<a href="javascript:void(0);">抖音</a>
+					<a href="javascript:void(0);">快手</a>
+					<a href="javascript:void(0);">红书</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="bottom">
+		<div>粤港澳娱乐新闻网-热点新闻 国际新闻 娱乐新闻</div>
+		<div>网站内容来自网络，如有侵权请联系我们，立即删除！</div>
+		<div>Copyright © 2021 yuegangaoyl.com 粤港澳娱乐新闻网 - 版权所有 京ICP备88888888</div>
+	</footer>
+</body>
+</html>

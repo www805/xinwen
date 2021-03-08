@@ -1,0 +1,32 @@
+
+
+
+
+.xinwen_item{
+	width: 48.5%;
+	height: 120px;
+	/*border: 1px solid blue;*/
+	margin-bottom: 10px;
+}
+
+.zhong_img{
+	width: 55%;
+	height: 90px;
+}
+.zhong_nr .title_nr{
+	/*display: none;*/
+}
+
+.right_nr_time{
+	width: 100px;
+}
+
+.title_main {
+	font-size: 16px;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
