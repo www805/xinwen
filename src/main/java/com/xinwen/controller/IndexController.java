@@ -2,6 +2,7 @@ package com.xinwen.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,8 +20,9 @@ public class IndexController {
         return new ModelAndView("index", "index", model);
     }
 
-    @RequestMapping("article")
-    public ModelAndView getArticle(Model model){
+    @RequestMapping("/article/{id}")
+    public ModelAndView getArticle(@PathVariable("id") String id,Model model){
+        System.out.println(id);
         return new ModelAndView("article", "article", model);
     }
 
