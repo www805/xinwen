@@ -1,6 +1,7 @@
 package com.xinwen.service;
 
 import com.xinwen.common.vo.GetArticleVO;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
 public interface IndexServlce {
 
 
-    GetArticleVO getArticle(String id);
+    void getArticle(String id, Model model);
 
 
 }

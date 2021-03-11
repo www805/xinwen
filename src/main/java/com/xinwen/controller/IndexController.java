@@ -30,8 +30,7 @@ public class IndexController {
     //独立新闻页面
     @RequestMapping("/article/{id}.html")
     public ModelAndView getArticle(@PathVariable("id") String id, Model model) {
-        GetArticleVO articleVO = indexServlce.getArticle(id);
-        model.addAttribute(articleVO);
+        indexServlce.getArticle(id, model);
         return new ModelAndView("article", "article", model);
     }
 

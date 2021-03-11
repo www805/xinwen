@@ -7,6 +7,8 @@ import com.xinwen.mapper.XinWenMapper;
 import com.xinwen.service.IndexServlce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class IndexServlceImpl implements IndexServlce {
     private XinWenMapper xinWenMapper;
 
     @Override
-    public GetArticleVO getArticle(String id) {
+    public void getArticle(String id, Model model) {
 
         GetArticleVO articleVO = new GetArticleVO();
 
@@ -33,11 +35,14 @@ public class IndexServlceImpl implements IndexServlce {
         List<XinWenEntity> wenEntityList = xinWenMapper.selectList(uw);
         if(wenEntityList.size() == 0){
             //跳转到不存在页面
-
+            RedirectView redirectView = new RedirectView("baidu.com");
+            model.addAttribute(redirectView);
+            return;
         }
         XinWenEntity xinWenEntity = wenEntityList.get(0);
 
         articleVO.setXinWenEntity(xinWenEntity);
-        return articleVO;
+
+        model.addAttribute(articleVO);
     }
 }
