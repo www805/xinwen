@@ -9,6 +9,10 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/xinwen?useUnicode=true&characterEncoding=UTF-8&useSSL=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: root
+#热部署文件，页面不产生缓存，及时更新
+  thymeleaf:
+    cache: false
+
 
 #运行输出sql语句
 mybatis-plus:
