@@ -1,6 +1,7 @@
 package com.xinwen.service;
 
 import com.xinwen.common.entity.XinWenEntity;
+import com.xinwen.common.param.GetSearchXinWenParam;
 import com.xinwen.common.param.GetXinWenListParam;
 import com.xinwen.common.utils.RResult;
 
@@ -17,4 +18,5 @@ public interface XinWenService {
 
     RResult getXinWenType(RResult result);
 
+    RResult getSearchXinWen(RResult result, GetSearchXinWenParam param);
 }

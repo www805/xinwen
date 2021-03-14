@@ -24,20 +24,18 @@ public class IndexController {
 
     @RequestMapping({"/", "index.html"})
     public ModelAndView getIndex(Model model) {
-        return new ModelAndView("index", "index", model);
+        return indexServlce.getIndex(model);
     }
 
     //独立新闻页面
     @RequestMapping("/article/{id}.html")
     public ModelAndView getArticle(@PathVariable("id") String id, Model model) {
-        indexServlce.getArticle(id, model);
-        return new ModelAndView("article", "article", model);
+        return indexServlce.getArticle(id, model);
     }
 
-    @RequestMapping("/search/{keyword}.html")
-    public ModelAndView getSearch(@PathVariable("keyword") String keyword, Model model) {
-
-        return new ModelAndView("search", "search", model);
+    @RequestMapping("/search.html")
+    public ModelAndView getSearch(String k, Model model) {
+        return indexServlce.getSearch(k, model);
     }
 
 

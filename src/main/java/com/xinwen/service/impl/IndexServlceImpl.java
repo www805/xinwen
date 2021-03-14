@@ -8,6 +8,8 @@ import com.xinwen.service.IndexServlce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -24,9 +26,7 @@ public class IndexServlceImpl implements IndexServlce {
     private XinWenMapper xinWenMapper;
 
     @Override
-    public void getArticle(String id, Model model) {
-
-        GetArticleVO articleVO = new GetArticleVO();
+    public ModelAndView getArticle(String id, Model model) {
 
         //获取文章
         //还有其他一些推荐等
@@ -35,14 +35,57 @@ public class IndexServlceImpl implements IndexServlce {
         List<XinWenEntity> wenEntityList = xinWenMapper.selectList(uw);
         if(wenEntityList.size() == 0){
             //跳转到不存在页面
-            RedirectView redirectView = new RedirectView("baidu.com");
-            model.addAttribute(redirectView);
-            return;
+            return new ModelAndView("/error/404");
         }
         XinWenEntity xinWenEntity = wenEntityList.get(0);
 
-        articleVO.setXinWenEntity(xinWenEntity);
 
-        model.addAttribute(articleVO);
+        //获取随机新闻
+        List<XinWenEntity> suijiXinWen = xinWenMapper.getXinWenRandom(8);
+
+        //获取推荐新闻
+        UpdateWrapper<XinWenEntity> uwtuijian = new UpdateWrapper<>();
+        uwtuijian.eq("status", 1);
+        uwtuijian.last("limit 4");
+        List<XinWenEntity> tuijian = xinWenMapper.selectList(uwtuijian);
+
+        //获取推荐上一篇和下一篇的链接
+        XinWenEntity previous = xinWenMapper.getXinWenPrevious(xinWenEntity.getContentId());
+        XinWenEntity next = xinWenMapper.getXinWenNext(xinWenEntity.getContentId());
+
+        model.addAttribute("previous",previous);
+        model.addAttribute("next",next);
+        model.addAttribute("tuijian",tuijian);
+        model.addAttribute("xw", xinWenEntity);
+        model.addAttribute("suijiXinWen", suijiXinWen);
+        return new ModelAndView("article", "article", model);
     }
+
+    @Override
+    public ModelAndView getIndex(Model model) {
+        List<XinWenEntity> xinWenEntities = getTuiJian();
+        model.addAttribute("tuijian",xinWenEntities);
+        return new ModelAndView("index", "index", model);
+    }
+
+    @Override
+    public ModelAndView getSearch(String keyword, Model model) {
+
+        List<XinWenEntity> xinWenEntities = getTuiJian();
+        model.addAttribute("tuijian",xinWenEntities);
+
+        model.addAttribute("keyword",keyword);
+        return new ModelAndView("search", "search", model);
+    }
+
+
+    private List<XinWenEntity> getTuiJian(){
+        UpdateWrapper<XinWenEntity> uw = new UpdateWrapper<>();
+        uw.eq("status", 1);
+        uw.last("limit 4");
+
+        List<XinWenEntity> xinWenEntities = xinWenMapper.selectList(uw);
+        return xinWenEntities;
+    }
+
 }

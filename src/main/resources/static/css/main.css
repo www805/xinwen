@@ -10,6 +10,9 @@ a{
 a:hover{
 	color: #09F;
 }
+[v-cloak] {
+	display: none;
+}
 body{
 	font-size: 14px;
     font-weight: normal;
@@ -252,9 +255,9 @@ body{
 }
 .xinwen_item{
 	width: 210px;
-	height: 150px;
+	height: 160px;
 	/*border: 1px solid blue;*/
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 .xinwen_type_name{
 	float: left;
@@ -288,6 +291,10 @@ ul.pagination {
 
 ul.pagination li {display: inline;}
 
+ul.pagination li.disabled{
+	display: none;
+}
+
 ul.pagination li a {
     color: black;
     float: left;
@@ -296,14 +303,30 @@ ul.pagination li a {
     border-radius: 5px;
 }
 
-ul.pagination li a.active {
+ul.pagination li.active a{
     background-color: #47aeff;
     color: white;
     border-radius: 5px;
 }
+
+
+
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 /*分页样式 end*/
 
 .gengduo{
-	width: 100%;border: 1px solid #e2e2e2;display: block;text-align: center;padding: 5px 0;cursor:pointer;
+	width: 100%;
+	border: 1px solid #e2e2e2;
+	display: block;
+	text-align: center;
+	padding: 5px 0;
+	cursor:pointer;
 }
+
+.nogengduo{
+	width: 100%;
+	display: block;
+	text-align: center;
+	padding: 15px 0;
+}
+

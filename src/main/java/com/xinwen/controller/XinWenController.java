@@ -1,11 +1,15 @@
 package com.xinwen.controller;
 
 import com.xinwen.common.entity.XinWenEntity;
+import com.xinwen.common.param.GetSearchXinWenParam;
 import com.xinwen.common.param.GetXinWenListParam;
 import com.xinwen.common.utils.RResult;
 import com.xinwen.service.XinWenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * com.xinwen.controller
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @author 庄先生
  * @date 2021/3/7
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/xinwen")
 public class XinWenController {
@@ -24,7 +29,7 @@ public class XinWenController {
 
     /**查询所有新闻*/
     @GetMapping("/getXinWenList")
-    public RResult getXinWenList(@RequestBody GetXinWenListParam param) {
+    public RResult getXinWenList(GetXinWenListParam param) {
         RResult<XinWenEntity> result = new RResult<>();
         return xinWenService.getXinWenList (result, param);
     }
@@ -49,5 +54,11 @@ public class XinWenController {
         return null;
     }
 
+
+    @PostMapping("/getSearchXinWen")
+    public RResult getSearchXinWen(@RequestBody GetSearchXinWenParam param) {
+        RResult<XinWenEntity> result = new RResult<>();
+        return xinWenService.getSearchXinWen(result, param);
+    }
 
 }

@@ -1,189 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<title>文章页面</title>
+	<title th:text="${article.xw.title} + '-粤港澳娱乐新闻网'">文章页面</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="description" content="最权威的新闻网">
     <meta name="keywords" content="粤港澳娱乐新闻网">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
-	<link rel="stylesheet" type="text/css" href="/css/sm.css"
-		media="(max-device-width:500px)">
+	<link rel="stylesheet" type="text/css" href="/css/sm.css" media="(max-device-width:500px)">
+    <link rel="stylesheet" type="text/css" href="/css/article.css">
+	<script th:src="@{/js/common.js}" type="text/javascript"></script>
+	<script th:src="@{/js/actionid.js}" type="text/javascript"></script>
+
+	<!--vue和axios引入-->
+	<script th:src="@{/js/vuejs-2.5.16.js}" type="text/javascript"></script>
+	<script th:src="@{/js/axios-0.18.0.js}" type="text/javascript"></script>
 	<style type="text/css">
-		.wz_main{
-			padding: 5px 10px;
+		.xwimg{
+			width: 500px;
 		}
-		.wz_title{
-			border-bottom: 1px solid #ddd;
-		}
-		.wz_time{
-			color: #7f7f7f;
-			margin-bottom: 5px;
-		}
-		.current {
-		    line-height: 40px;
-		    padding-left: 5px;
-		    color: #7f7f7f;
-		    background: #F6F6F6!important;
-		}
-		.wz_title h1{
-			font-size: 34px;
-		    color: #404040;
-		    font-weight: bold;
-		    margin-bottom: 10px;
-		}
-		.wz_time span{
-			margin-right: 20px;
-		}
-		.wz_nr{
-			margin-top: 10px;
-			font-size: 16px;
-		}
-
-		@media only screen and (min-width: 501px) { 
-			.nextpage{
-				overflow: hidden;
-			}
-			.nextpage .lt {
-			    float: left;
-			    display: inline;
-			    overflow: hidden;
-			    width: 320px;
-			    text-overflow: ellipsis;
-			    white-space: nowrap;
-			    line-height: 32px;
-			}
-			.nextpage .rt {
-			    float: right;
-			    display: inline;
-			    overflow: hidden;
-			    width: 320px;
-			    text-overflow: ellipsis;
-			    white-space: nowrap;
-			    line-height: 32px;
-			}
-			.zhong_right_search{
-				margin-top: 10px;
-			}
-
-
-		}
-		@media only screen and (max-width: 500px) { 
-		    
-			.top{
+		@media only screen and (max-width: 500px) {
+			.xwimg{
 				width: 100%;
-				position: fixed;
-				top: 0;
-				background-color: #00599F;
-			}
-			.top_nav{
-				display: none;
-			}
-			.top_logo{
-				height: 60px;
-				font-size: 18px;
-				color: #fff;
-				margin-left: 10px;
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-			}
-			.top_nav ul a, .top_logo a{
-				color: #fff;
-			}
-			.top_nav_btn{
-				position: absolute;
-				top: 20px;
-				right: 10px;
-			}
-			.zhong{
-				width: 100%;
-				margin-top: 60px;
-				display: flex;
-				flex-direction: column;
-				flex-wrap: wrap-reverse;
-			}
-			.zhong_left{
-				width: 100%;
-				background-color: #fff;
-			}
-			.zhong_right{
-				width: 100%;
-				/*display: none;*/
-				padding-bottom: 150px;
-			}
-			.zhong_right_search{
-				display: none;
-			}
-			.wz_title h1{
-				font-size: 24px;
-			}
-			.right_item{
-				display: flex;
-				padding: 5px 10px;
-			}
-			.zhong_img img, .right_img img{
-				width: 100%;
-				height: 100%;
-			}
-			.right_img{
-				width: 50%;
-				height: 70px;
-			}
-			.right_nr{
-				width: 72%;
-				position: relative;
-				padding-left: 10px;
-			}
-			.right_nr_time span{
-				font-size: 12px;
-				color: #999;
-				position: absolute;
-				bottom: 0;
-			}
-			.bottom{
-				padding-top: 1px;
-				font-size: 13px;
-			}
-			.top_nav_btn{
-				display: block;
 			}
 		}
 	</style>
 </head>
 <body>
-	<div class="top">
-		<div class="top_page">
-			<div class="top_logo">
-				<a href="/">粤港澳娱乐新闻网</a>
-			</div>
-			<div class="top_nav">
-				<ul>
-					<li><a href="/">首页</a></li>
-					<li><a href="javascript:void(0);">国内新闻</a></li>
-					<li><a href="javascript:void(0);">香港新闻</a></li>
-					<li><a href="javascript:void(0);">国际新闻</a></li>
-				</ul>
-			</div>
-			<button class="top_nav_btn">导航栏</button>
-		</div>
-	</div>
-	<div class="zhong">
+	<div th:replace="base/header :: header">...</div>
+
+	<div id="app" class="zhong" v-cloak>
 		<div class="zhong_left">
 			<div class="current">
-			  	<p>当前位置：<a href="day001.html">首页</a> &gt; <a href="../">国际新闻</a> &gt; 拜登宣誓上任</p>
+			  	<p>当前位置：<a href="/">首页</a> &gt; <a href="../" th:text="${article.xw.type}">国际新闻</a> &gt; <span th:text="${article.xw.title}">拜登宣誓上任</span></p>
 			</div>
 
 			<div class="wz_main">
 				<div class="wz_title">
-					<h1>拜登宣誓上任</h1>
+					<h1 th:text="${article.xw.title}">拜登宣誓上任</h1>
 					<div class="wz_time">
-						时间：<span>2021-01-27 11:58 </span>
+						时间：<span th:text="${article.xw.lastUpdateDatetime}">2021-01-27 11:58 </span>
 						来源：<span>网络整理 </span>
 						编辑：<span>admin</span>
 					</div>
 				</div>
-				<div class="wz_nr">
-
+<!--				<p th:text="${article.xw.imgurls}">123</p>-->
+<!--				<p th:text="${#strings.arraySplit(article.xw.imgurls,',')}">123</p>-->
+<!--				<img th:src="imgurl" th:each="imgurl,imgStat:${#strings.arraySplit(article.xw.imgurls,',')}" />-->
+				<img th:if="${#strings.isEmpty(article.xw.imgurls)==false}" th:src="'http://localhost'+${ #strings.indexOf(article.xw.imgurls, ',') >= 0? #strings.arraySplit(article.xw.imgurls, ',')[0] : article.xw.imgurls}" th:alt="${article.xw.title} + '-粤港澳娱乐新闻网'" class="xwimg" >
+				<div th:utext="${#strings.replace(article.xw.content,'\n','<br/>')}" class="wz_nr">
 
 					美国当选总统、民主党人拜登20日在美国首都华盛顿国会山举行的就职典礼上宣誓就任美国第46任总统。
 
@@ -198,95 +62,27 @@
 拜登宣布将重返《巴黎协定》
 				</div>
 				<div class="nextpage">
-			      <div class="lt">上一篇：<a href="/">墨西哥各界反对美国钢铝关税措施</a>  </div>
-			      <div class="rt">下一篇：没有了 </div>
+			      <div class="lt">上一篇：<span th:if="${article.previous == null}">没有了</span>
+					  <a th:if="${article.previous != null and article.previous.contentId != null}" th:href="'/article/'+${article.previous.contentId}+'.html'" th:text="${article.previous.title}">墨西哥各界反对美国钢铝关税措施</a>  </div>
+			      <div class="rt">下一篇：<span th:if="${article.next == null}">没有了</span>
+					  <a th:if="${article.next != null and article.next.contentId != null}" th:href="'/article/'+${article.next.contentId}+'.html'" th:text="${article.next.title}">墨西哥各界反对美国钢铝关税措施</a>  </div>
 			    </div>
-				<div>
-					相关推荐
-
-				</div>
 			</div>
 
 			<div style="padding-top:10px;background-color: rgb(246, 246, 246) !important;">
 				<div style="background-color: #fff;padding:10px;">
-					<p class="suiji-lable">随机新闻</p>
+					<h3 class="suiji-lable">随机新闻</h3>
 					<div class="xinwen_list">
-
 						
-						<div class="xinwen_item">
-							<a href="javascript:void(0);">
+						<div th:each="suiji, suijiStat:${article.suijiXinWen}" class="xinwen_item">
+							<a th:href="@{'/article/'+${suiji.contentId}+'.html'}">
 								<div class="xinwen_img">
-									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+									<img th:src="'http://localhost:80'+ ${#strings.isEmpty(suiji.imgurls)==false? #strings.indexOf(suiji.imgurls, ',') >= 0? #strings.arraySplit(suiji.imgurls, ',')[0] : suiji.imgurls : '/uploadImage/load_log.png'}">
 								</div>
-								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
+								<p th:text="${suiji.title}" class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
 								<p class="xinwen_bottom_type_time">
-									<span class="xinwen_type_name">国际</span>
-									<span class="xinwen_type_time">2021-02-05</span>
-								</p>
-							</a>
-						</div>
-
-						<div class="xinwen_item">
-							<a href="javascript:void(0);">
-								<div class="xinwen_img">
-									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
-								</div>
-								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
-								<p class="xinwen_bottom_type_time">
-									<span class="xinwen_type_name">国际</span>
-									<span class="xinwen_type_time">2021-02-05</span>
-								</p>
-							</a>
-						</div>
-						
-						<div class="xinwen_item">
-							<a href="javascript:void(0);">
-								<div class="xinwen_img">
-									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
-								</div>
-								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
-								<p class="xinwen_bottom_type_time">
-									<span class="xinwen_type_name">国际</span>
-									<span class="xinwen_type_time">2021-02-05</span>
-								</p>
-							</a>
-						</div>
-
-						<div class="xinwen_item">
-							<a href="javascript:void(0);">
-								<div class="xinwen_img">
-									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
-								</div>
-								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
-								<p class="xinwen_bottom_type_time">
-									<span class="xinwen_type_name">国际</span>
-									<span class="xinwen_type_time">2021-02-05</span>
-								</p>
-							</a>
-						</div>
-
-						<div class="xinwen_item">
-							<a href="javascript:void(0);">
-								<div class="xinwen_img">
-									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
-								</div>
-								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
-								<p class="xinwen_bottom_type_time">
-									<span class="xinwen_type_name">国际</span>
-									<span class="xinwen_type_time">2021-02-05</span>
-								</p>
-							</a>
-						</div>
-
-						<div class="xinwen_item">
-							<a href="javascript:void(0);">
-								<div class="xinwen_img">
-									<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
-								</div>
-								<p class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
-								<p class="xinwen_bottom_type_time">
-									<span class="xinwen_type_name">国际</span>
-									<span class="xinwen_type_time">2021-02-05</span>
+									<span th:text="${suiji.type}" class="xinwen_type_name">国际</span>
+									<span th:text="${#strings.substring(suiji.lastUpdateDatetime,0,#strings.indexOf(suiji.lastUpdateDatetime,' ')) }" class="xinwen_type_time">2021-02-05</span>
 								</p>
 							</a>
 						</div>
@@ -298,64 +94,41 @@
 		</div>
 		<div class="zhong_right">
 			<div class="zhong_right_search" >
-				<form name="formsearch" class="search-form" action="search.html">
-			      <input type="text" class="keyword" name="q" placeholder="输入关键词搜索..." value="">
-			      <button class="right_search_btn" ><a href="search.html" >搜索</a></button>
-			      <!-- <a href="search.html" ><input type="button" class="right_search_btn" value="搜索"></a> -->
-			    </form>
+				<form name="formsearch" class="search-form" action="/search.html">
+					<input type="text" class="keyword" name="k" placeholder="输入关键词搜索..." value="">
+					<input type="submit" class="right_search_btn" value="搜索">
+					<!-- <button class="right_search_btn" ><a href="/search.html" >搜索</a></button>-->
+					<!-- <a href="search.html" ><input type="button" class="right_search_btn" value="搜索"></a> -->
+				</form>
 			</div>
 			<div class="piece">
 				<h3>推荐新闻</h3>
 				<div>
 
-					<div class="right_item">
+					<div class="right_item" th:each="tuijian,tuijianStat : ${article.tuijian}">
 						<div class="right_img">
-							<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
+							<a th:href="@{'/article/'+${tuijian.contentId}+'.html'}">
+								<img th:src="'http://localhost:80' + ${#strings.isEmpty(tuijian.imgurls)==false? #strings.indexOf(tuijian.imgurls, ',') >= 0? #strings.arraySplit(tuijian.imgurls, ',')[0] : tuijian.imgurls : '/uploadImage/load_log.png'}">
+							</a>
 						</div>
 						<div class="right_nr">
 							<b>
-								<a href="/" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
+								<a th:href="@{'/article/'+${tuijian.contentId}+'.html'}" th:title="${tuijian.title}" th:text="${tuijian.title}">南京抖音培训营：抖音变现8大玩法</a>
 							</b>
 							<p class="right_nr_time">
-								<span>2021-01-19</span>
-							</p>
-						</div>
-					</div>
-
-
-					<div class="right_item">
-						<div class="right_img">
-							<img src="http://4111.10yanw.com/uploads/allimg/c191114/15IG5BU93P-1D920.jpg">
-						</div>
-						<div class="right_nr">
-							<b>
-								<a href="/" title="南京抖音培训营：抖音变现8大玩法">南京抖音培训营：抖音变现8大玩法</a>
-							</b>
-							<p class="right_nr_time">
-								<span>2021-01-19</span>
+								<span th:text="${tuijian.type}">国内</span>
+<!--								<span th:text="${#strings.substring(tuijian.lastUpdateDatetime,0,#strings.indexOf(tuijian.lastUpdateDatetime,' ')) }">2021-01-19</span>-->
 							</p>
 						</div>
 					</div>
 
 				</div>
 			</div>
-			<div class="piece">
-				<h3>热门标签</h3>
-				<div class="piece_label">
-					<a href="javascript:void(0);">抖音抖音</a>
-					<a href="javascript:void(0);">快手快手</a>
-					<a href="javascript:void(0);">红书红书</a>
-					<a href="javascript:void(0);">抖音</a>
-					<a href="javascript:void(0);">快手</a>
-					<a href="javascript:void(0);">红书</a>
-				</div>
-			</div>
+			<div th:replace="base/piece :: piece">...</div>
 		</div>
 	</div>
-	<footer class="bottom">
-		<div>粤港澳娱乐新闻网-热点新闻 国际新闻 娱乐新闻</div>
-		<div>网站内容来自网络，如有侵权请联系我们，立即删除！</div>
-		<div>Copyright © 2021 yuegangaoyl.com 粤港澳娱乐新闻网 - 版权所有 京ICP备88888888</div>
-	</footer>
+
+	<div th:replace="base/footer :: footer">...</div>
+
 </body>
 </html>

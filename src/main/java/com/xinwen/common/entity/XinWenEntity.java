@@ -36,6 +36,7 @@ public class XinWenEntity implements Serializable {
     private String imgurls; //图片地址
     private String type; //文章类型
     private String content; //文章内容
+    private Long viewNum; //文章阅读数量
     private String scheduleTs; //发布时间
     private String lastUpdateDatetime; //最后修改时间
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

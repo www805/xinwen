@@ -14,8 +14,46 @@
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <sql id="baseSql">
+        id, content_id, title, imgurls, type, content, view_num, status, schedule_ts, last_update_datetime, create_time
+    </sql>
+
     <select id="getXinWenType" resultType="string">
         select type from xinwen group by type
     </select>
+
+    <select id="getXinWenRandom" resultMap="BaseResultMap">
+        SELECT <include refid="baseSql"/>
+        FROM
+            xinwen
+        WHERE
+            id IN (SELECT id FROM (SELECT id FROM xinwen ORDER BY RAND()
+        <if test="pageNum != null">
+            LIMIT #{pageNum}
+        </if> ) t)
+    </select>
+
+    <select id="getXinWenPrevious" resultMap="BaseResultMap">
+        SELECT
+            <include refid="baseSql"/>
+        FROM
+            xinwen
+        WHERE
+            id &lt; ( SELECT id FROM xinwen WHERE content_id = #{contentId} )
+        ORDER BY id DESC
+        LIMIT 1
+    </select>
+
+    <select id="getXinWenNext" resultMap="BaseResultMap">
+        SELECT
+            <include refid="baseSql"/>
+        FROM
+            xinwen
+        WHERE
+            id &gt; ( SELECT id FROM xinwen WHERE content_id = #{contentId} )
+        ORDER BY id asc
+        LIMIT 1
+    </select>
+
 
 </mapper>

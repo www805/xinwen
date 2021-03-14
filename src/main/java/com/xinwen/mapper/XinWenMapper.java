@@ -16,4 +16,10 @@ public interface XinWenMapper extends BaseMapper<XinWenEntity> {
 
     List<String> getXinWenType();
 
+    List<XinWenEntity> getXinWenRandom(int pageNum);
+
+    XinWenEntity getXinWenPrevious(Long contentId);
+
+    XinWenEntity getXinWenNext(Long contentId);
+
 }

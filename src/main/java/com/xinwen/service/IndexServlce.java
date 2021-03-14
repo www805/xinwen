@@ -2,6 +2,7 @@ package com.xinwen.service;
 
 import com.xinwen.common.vo.GetArticleVO;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -12,7 +13,11 @@ import java.util.List;
 public interface IndexServlce {
 
 
-    void getArticle(String id, Model model);
+    ModelAndView getArticle(String id, Model model);
 
+
+    ModelAndView getIndex(Model model);
+
+    ModelAndView getSearch(String keyword, Model model);
 
 }
