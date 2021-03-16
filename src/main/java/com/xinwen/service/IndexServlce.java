@@ -18,6 +18,6 @@ public interface IndexServlce {
 
     ModelAndView getIndex(Model model);
 
-    ModelAndView getSearch(String keyword, Model model);
+    ModelAndView getSearch(String keyword, String type, Model model);
 
 }

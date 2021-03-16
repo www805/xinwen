@@ -60,21 +60,31 @@ public class XinWenServiceImpl implements XinWenService {
 
     @Override
     public RResult getSearchXinWen(RResult result, GetSearchXinWenParam param) {
-
-        if (StringUtils.isBlank(param.getKeyword())) {
+        //关键字和类型同时为空的时候，就返回这个，如果其中有一个不为空，就按照传入的值去查询
+        if (StringUtils.isBlank(param.getKeyword()) && StringUtils.isBlank(param.getType())) {
             result.setMessage("关键字不能为空！");
             return result;
         }
 
+        UpdateWrapper<XinWenEntity> uw = new UpdateWrapper<>();
         try {
-            String k = URLDecoder.decode(param.getKeyword(), "UTF-8");
-            param.setKeyword(k);
+            String keyword = param.getKeyword();
+            String type = param.getType();
+
+            if (StringUtils.isNoneBlank(keyword)) {
+                keyword = URLDecoder.decode(keyword, "UTF-8");
+                uw.like("title", keyword);
+            }
+            if (StringUtils.isNoneBlank(type)) {
+                type = URLDecoder.decode(type, "UTF-8");
+                uw.eq("type", type);
+            }
+
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
-        UpdateWrapper<XinWenEntity> uw = new UpdateWrapper<>();
-        uw.like("title", param.getKeyword());
         uw.orderByDesc("last_update_datetime");
 
         Integer count = xinWenMapper.selectCount(uw);

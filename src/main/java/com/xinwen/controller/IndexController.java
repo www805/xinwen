@@ -34,8 +34,8 @@ public class IndexController {
     }
 
     @RequestMapping("/search.html")
-    public ModelAndView getSearch(String k, Model model) {
-        return indexServlce.getSearch(k, model);
+    public ModelAndView getSearch(String k,String t, Model model) {
+        return indexServlce.getSearch(k, t, model);
     }
 
 

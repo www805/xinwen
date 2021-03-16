@@ -17,4 +17,6 @@ public class GetSearchXinWenParam extends Page {
     @NotBlank(message = "关键字不能为空！")
     private String keyword;
 
+    private String type;
+
 }

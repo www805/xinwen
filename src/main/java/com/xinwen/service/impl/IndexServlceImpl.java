@@ -69,12 +69,13 @@ public class IndexServlceImpl implements IndexServlce {
     }
 
     @Override
-    public ModelAndView getSearch(String keyword, Model model) {
+    public ModelAndView getSearch(String keyword, String type, Model model) {
 
         List<XinWenEntity> xinWenEntities = getTuiJian();
-        model.addAttribute("tuijian",xinWenEntities);
+        model.addAttribute("tuijian", xinWenEntities);
 
-        model.addAttribute("keyword",keyword);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("type", type);
         return new ModelAndView("search", "search", model);
     }
 

@@ -308,7 +308,10 @@ ul.pagination li.active a{
     color: white;
     border-radius: 5px;
 }
-
+.panel {
+	height:120px;
+	display:none;
+}
 
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}

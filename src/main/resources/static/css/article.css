@@ -32,6 +32,9 @@
     margin-top: 10px;
     font-weight: bold;
 }
+.xwimg{
+    width: 500px;
+}
 
 @media only screen and (min-width: 501px) {
     .nextpage{
@@ -62,7 +65,9 @@
 
 }
 @media only screen and (max-width: 500px) {
-
+    .xwimg{
+        width: 100%;
+    }
     .top{
         width: 100%;
         position: fixed;
@@ -140,5 +145,8 @@
     }
     .top_nav_btn{
         display: block;
+    }
+    .current {
+        line-height: 30px;
     }
 }
