@@ -308,11 +308,12 @@ ul.pagination li.active a{
     color: white;
     border-radius: 5px;
 }
-.panel {
-	height:120px;
-	display:none;
-}
 
+#panel a{
+	color: white;
+	padding: 1% 8%;
+	border: 1px solid #fff;
+}
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 /*分页样式 end*/
@@ -332,4 +333,8 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 	text-align: center;
 	padding: 15px 0;
 }
-
+@media only screen and (max-width: 500px) {
+	.right_nr b a{
+		width: 180px;
+	}
+}

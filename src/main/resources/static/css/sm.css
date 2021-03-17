@@ -30,3 +30,12 @@
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 }
+
+@media only screen and (min-width: 410px) {
+	.xinwen_item{
+		height: 150px;
+	}
+	.right_img {
+		height: 80px;
+	}
+}

@@ -15,12 +15,7 @@
 	<!--vue和axios引入-->
 	<script th:src="@{/js/vuejs-2.5.16.js}" type="text/javascript"></script>
 	<script th:src="@{/js/axios-0.18.0.js}" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(".top_nav_btn").click(function(){
-			console.log("1111111111")
-			$(".panel").slideToggle("slow");
-		});
-	</script>
+
 </head>
 <body>
 	<div th:replace="base/header :: header">...</div>
@@ -43,7 +38,7 @@
 <!--				<p th:text="${article.xw.imgurls}">123</p>-->
 <!--				<p th:text="${#strings.arraySplit(article.xw.imgurls,',')}">123</p>-->
 <!--				<img th:src="imgurl" th:each="imgurl,imgStat:${#strings.arraySplit(article.xw.imgurls,',')}" />-->
-				<img th:if="${#strings.indexOf(article.xw.imgurls, ',') == -1}" th:src="'http://localhost'+${ article.xw.imgurls}" th:alt="${article.xw.title} + '-粤港澳娱乐新闻网'" class="xwimg" >
+				<img th:if="${#strings.indexOf(article.xw.imgurls, ',') == -1 && !#strings.isEmpty(article.xw.imgurls)}" th:src="'http://localhost'+${ article.xw.imgurls}" th:alt="${article.xw.title} + '-粤港澳娱乐新闻网'" class="xwimg" >
 				<div th:if="${#strings.indexOf(article.xw.imgurls, ',') >= 0}" th:each="imgurl, imgurlStat:${article.xw.imgurls.split(',')}" >
 					<img th:src="'http://localhost'+${imgurl}" th:alt="${article.xw.title} + '-粤港澳娱乐新闻网'" class="xwimg" >
 				</div>
