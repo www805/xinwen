@@ -75,7 +75,7 @@ public class IndexServlceImpl implements IndexServlce {
         model.addAttribute("tuijian", xinWenEntities);
 
         model.addAttribute("keyword", keyword);
-        model.addAttribute("type", type);
+        model.addAttribute("type", "两岸".equals(type) ? "国内" : type);
         return new ModelAndView("search", "search", model);
     }
 
