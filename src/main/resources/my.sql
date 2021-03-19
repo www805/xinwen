@@ -15,6 +15,7 @@ CREATE TABLE `xinwen` (
   `imgurls` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '图片地址',
   `type` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '文章类型',
   `content` text COLLATE utf8_bin COMMENT '文章内容',
+  `description_nr` varchar(600) COLLATE utf8_bin DEFAULT NULL COMMENT '文章描述',
   `view_num` bigint(20) DEFAULT NULL COMMENT '文字阅读数',
   `status` int(2) NOT NULL DEFAULT '0' COMMENT '状态，0正常，1推荐',
   `schedule_ts` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '发布时间',

@@ -65,6 +65,11 @@ public class CrawlServiceImpl implements CrawlService {
                 xinWenEntity.setType(type);
             }
 
+            if(StringUtils.isNoneBlank(param.getDescriptionNr())){
+                String description = URLDecoder.decode(param.getDescriptionNr(), "utf-8");
+                xinWenEntity.setDescriptionNr(description);
+            }
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -74,16 +79,18 @@ public class CrawlServiceImpl implements CrawlService {
         xinWenEntity.setLastUpdateDatetime(param.getLastUpdateDatetime());
         xinWenEntity.setContentId(param.getContentId());
 
+        int insert = 0;
+
         UpdateWrapper uw = new UpdateWrapper<>();
         uw.eq("content_id", param.getContentId());
         List<XinWenEntity> xinWenEntities = xinWenMapper.selectList(uw);
         if (xinWenEntities.size() > 0) {
             result.setMessage("该新闻已经存在，无法添加！");
             return result;
+        }else{
+            insert = xinWenMapper.insert(xinWenEntity);
         }
-        int insert = xinWenMapper.insert(xinWenEntity);
 
-        //int insert = 0;
         if(insert > 0){
             result.changeToTrue();
         }else{

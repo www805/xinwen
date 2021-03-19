@@ -20,5 +20,6 @@ public class CrawlAddXinWenParam {
     private String content; //文章内容
     private String scheduleTs; //发布时间
     private String lastUpdateDatetime; //最后修改时间
+    private String descriptionNr; //文章描述
 
 }

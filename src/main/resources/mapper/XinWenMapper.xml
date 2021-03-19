@@ -3,19 +3,21 @@
 <mapper namespace="com.xinwen.mapper.XinWenMapper">
 
     <resultMap type="com.xinwen.common.entity.XinWenEntity" id="BaseResultMap">
-        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="id" column="id" jdbcType="BIGINT"/>
         <result property="contentId" column="content_id" jdbcType="BIGINT"/>
         <result property="title" column="title" jdbcType="VARCHAR"/>
         <result property="imgurls" column="imgurls" jdbcType="VARCHAR"/>
         <result property="type" column="type" jdbcType="VARCHAR"/>
         <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="descriptionNr" column="description_nr" jdbcType="VARCHAR"/>
+        <result property="viewNum" column="view_num" jdbcType="BIGINT"/>
         <result property="scheduleTs" column="schedule_ts" jdbcType="VARCHAR"/>
         <result property="lastUpdateDatetime" column="last_update_datetime" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="baseSql">
-        id, content_id, title, imgurls, type, content, view_num, status, schedule_ts, last_update_datetime, create_time
+        id, content_id, title, imgurls, type, content,description_nr, view_num, status, schedule_ts, last_update_datetime, create_time
     </sql>
 
     <select id="getXinWenType" resultType="string">
