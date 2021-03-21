@@ -23,7 +23,7 @@ import java.util.List;
 @Service
 public class IndexServlceImpl implements IndexServlce {
 
-    @Value("${spring.homeUrl:http://localhost:80}")
+    @Value("${spring.homeUrl:http://localhost:80}")//http://localhost:80
     private String homeUrl;
 
     @Autowired

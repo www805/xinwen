@@ -52,19 +52,19 @@ public class CrawlServiceImpl implements CrawlService {
         XinWenEntity xinWenEntity = new XinWenEntity();
         try {
             if(StringUtils.isNoneBlank(param.getTitle())){
-                String title = URLDecoder.decode(param.getTitle(), "gb2312");
+                String title = URLDecoder.decode(param.getTitle(), "utf-8");
                 title = ZhConverterUtil.toSimple(title);
                 xinWenEntity.setTitle(title);
             }
 
             if(StringUtils.isNoneBlank(param.getContent())){
-                String content = URLDecoder.decode(param.getContent(), "gb2312");
+                String content = URLDecoder.decode(param.getContent(), "utf-8");
                 content = ZhConverterUtil.toSimple(content);
                 xinWenEntity.setContent(content);
             }
 
             if(StringUtils.isNoneBlank(param.getType())){
-                String type = URLDecoder.decode(param.getType(), "gb2312");
+                String type = URLDecoder.decode(param.getType(), "utf-8");
                 type = ZhConverterUtil.toSimple(type);
                 xinWenEntity.setType(type);
             }

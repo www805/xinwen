@@ -20,7 +20,7 @@ public class HttpChlintTest {
 //        title = URLDecoder.decode(title, "gb2312");
 //        System.out.println(title);
 
-        String original = "有基層團體要求劏房租金應每2年按通帳調整";
+        String original = "<p>警方中午近一時接獲報案，指在赤柱衞奕信徑孖崗山一帶發現懷疑戰時炸彈，涉及4個手榴彈及1個炸彈，警方派出爆炸品處理課到場處理。</p>";
         String result = ZhConverterUtil.toSimple(original);
         System.out.println(result);
     }
