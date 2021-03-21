@@ -6,6 +6,8 @@ import com.xinwen.common.vo.GetArticleVO;
 import com.xinwen.mapper.XinWenMapper;
 import com.xinwen.service.IndexServlce;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +23,15 @@ import java.util.List;
 @Service
 public class IndexServlceImpl implements IndexServlce {
 
+    @Value("${spring.homeUrl:http://localhost:80}")
+    private String homeUrl;
 
     @Autowired
     private XinWenMapper xinWenMapper;
 
+
     @Override
+    @Cacheable(value = "article", key = "#id",condition = "#xinWenEntity == null")
     public ModelAndView getArticle(String id, Model model) {
 
         //获取文章
@@ -53,6 +59,7 @@ public class IndexServlceImpl implements IndexServlce {
         XinWenEntity previous = xinWenMapper.getXinWenPrevious(xinWenEntity.getContentId());
         XinWenEntity next = xinWenMapper.getXinWenNext(xinWenEntity.getContentId());
 
+        model.addAttribute("homeUrl",homeUrl);
         model.addAttribute("previous",previous);
         model.addAttribute("next",next);
         model.addAttribute("tuijian",tuijian);
@@ -64,6 +71,7 @@ public class IndexServlceImpl implements IndexServlce {
     @Override
     public ModelAndView getIndex(Model model) {
         List<XinWenEntity> xinWenEntities = getTuiJian();
+        model.addAttribute("homeUrl",homeUrl);
         model.addAttribute("tuijian",xinWenEntities);
         return new ModelAndView("index", "index", model);
     }
@@ -74,6 +82,7 @@ public class IndexServlceImpl implements IndexServlce {
         List<XinWenEntity> xinWenEntities = getTuiJian();
         model.addAttribute("tuijian", xinWenEntities);
 
+        model.addAttribute("homeUrl",homeUrl);
         model.addAttribute("keyword", keyword);
         model.addAttribute("type", "两岸".equals(type) ? "国内" : type);
         return new ModelAndView("search", "search", model);

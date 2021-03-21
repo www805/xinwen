@@ -1,6 +1,7 @@
 package com.xinwen.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.github.houbb.opencc4j.util.ZhConverterUtil;
 import com.xinwen.common.entity.ImgKuEntity;
 import com.xinwen.common.entity.XinWenEntity;
 import com.xinwen.common.param.CrawlAddXinWenParam;
@@ -52,21 +53,25 @@ public class CrawlServiceImpl implements CrawlService {
         try {
             if(StringUtils.isNoneBlank(param.getTitle())){
                 String title = URLDecoder.decode(param.getTitle(), "gb2312");
+                title = ZhConverterUtil.toSimple(title);
                 xinWenEntity.setTitle(title);
             }
 
             if(StringUtils.isNoneBlank(param.getContent())){
                 String content = URLDecoder.decode(param.getContent(), "gb2312");
+                content = ZhConverterUtil.toSimple(content);
                 xinWenEntity.setContent(content);
             }
 
             if(StringUtils.isNoneBlank(param.getType())){
                 String type = URLDecoder.decode(param.getType(), "gb2312");
+                type = ZhConverterUtil.toSimple(type);
                 xinWenEntity.setType(type);
             }
 
             if(StringUtils.isNoneBlank(param.getDescriptionNr())){
                 String description = URLDecoder.decode(param.getDescriptionNr(), "utf-8");
+                description = ZhConverterUtil.toSimple(description);
                 xinWenEntity.setDescriptionNr(description);
             }
 
@@ -85,14 +90,17 @@ public class CrawlServiceImpl implements CrawlService {
         uw.eq("content_id", param.getContentId());
         List<XinWenEntity> xinWenEntities = xinWenMapper.selectList(uw);
         if (xinWenEntities.size() > 0) {
-            result.setMessage("该新闻已经存在，无法添加！");
-            return result;
+            //result.setMessage("该新闻已经存在，无法添加！");
+            //return result;
+
+            insert = xinWenMapper.update(xinWenEntity, uw);
         }else{
             insert = xinWenMapper.insert(xinWenEntity);
         }
 
         if(insert > 0){
             result.changeToTrue();
+            result.setMessage("新闻添加成功！");
         }else{
             result.setMessage("新闻添加失败！");
         }

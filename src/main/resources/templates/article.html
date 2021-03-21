@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<title th:text="${article.xw.title} + '-粤港澳娱乐新闻网'">文章页面</title>
+	<title th:text="${article.xw.title} + '-粤港娱乐新闻网'">文章页面</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<meta name="keywords" th:attr="content=${article.xw.title}" content="粤港澳娱乐新闻网">
-	<meta name="description" th:attr="content=${article.xw.descriptionNr}" content="最权威的新闻网">
+	<meta name="keywords" th:attr="content=${article.xw.title}" content="粤港娱乐新闻网">
+	<meta name="description" th:attr="content=${article.xw.descriptionNr}" content="最权威的讯息网">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/css/sm.css" media="(max-device-width:500px)">
     <link rel="stylesheet" type="text/css" href="/css/article.css">
@@ -34,9 +34,9 @@
 						编辑：<span>admin</span>
 					</div>
 				</div>
-				<img th:if="${#strings.indexOf(article.xw.imgurls, ',') == -1 && !#strings.isEmpty(article.xw.imgurls)}" th:src="'http://localhost'+${ article.xw.imgurls}" th:alt="${article.xw.title} + '-粤港澳娱乐新闻网'" class="xwimg" >
+				<img th:if="${#strings.indexOf(article.xw.imgurls, ',') == -1 && !#strings.isEmpty(article.xw.imgurls)}" th:src="${homeUrl}+${ article.xw.imgurls}" th:alt="${article.xw.title} + '-粤港娱乐新闻网'" class="xwimg" >
 				<div th:if="${#strings.indexOf(article.xw.imgurls, ',') >= 0}" th:each="imgurl, imgurlStat:${article.xw.imgurls.split(',')}" >
-					<img th:src="'http://localhost'+${imgurl}" th:alt="${article.xw.title} + '-粤港澳娱乐新闻网'" class="xwimg" >
+					<img th:src="${homeUrl}+${imgurl}" th:alt="${article.xw.title} + '-粤港娱乐新闻网'" class="xwimg" >
 				</div>
 				<div th:utext="${#strings.replace(article.xw.content,'\n','<br/>')}" class="wz_nr">
 
@@ -68,7 +68,7 @@
 						<div th:each="suiji, suijiStat:${article.suijiXinWen}" class="xinwen_item">
 							<a th:href="@{'/article/'+${suiji.contentId}+'.html'}">
 								<div class="xinwen_img">
-									<img th:src="'http://localhost:80'+ ${#strings.isEmpty(suiji.imgurls)==false? #strings.indexOf(suiji.imgurls, ',') >= 0? #strings.arraySplit(suiji.imgurls, ',')[0] : suiji.imgurls : '/uploadImage/load_log.png'}" th:alt="${suiji.title} + '-粤港澳娱乐新闻网'">
+									<img th:src="${homeUrl}+ ${#strings.isEmpty(suiji.imgurls)==false? #strings.indexOf(suiji.imgurls, ',') >= 0? #strings.arraySplit(suiji.imgurls, ',')[0] : suiji.imgurls : '/uploadImage/load_log.png'}" th:alt="${suiji.title} + '-粤港娱乐新闻网'">
 								</div>
 								<p th:text="${suiji.title}" class="xinwen_title">墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施墨西哥各界反对美国钢铝关税措施</p>
 								<p class="xinwen_bottom_type_time">
@@ -97,7 +97,7 @@
 					<div class="right_item" th:each="tuijian,tuijianStat : ${article.tuijian}">
 						<div class="right_img">
 							<a th:href="@{'/article/'+${tuijian.contentId}+'.html'}">
-								<img th:src="'http://localhost:80' + ${#strings.isEmpty(tuijian.imgurls)==false? #strings.indexOf(tuijian.imgurls, ',') >= 0? #strings.arraySplit(tuijian.imgurls, ',')[0] : tuijian.imgurls : '/uploadImage/load_log.png'}"  th:alt="${tuijian.title} + '-粤港澳娱乐新闻网'" >
+								<img th:src="${homeUrl} + ${#strings.isEmpty(tuijian.imgurls)==false? #strings.indexOf(tuijian.imgurls, ',') >= 0? #strings.arraySplit(tuijian.imgurls, ',')[0] : tuijian.imgurls : '/uploadImage/load_log.png'}"  th:alt="${tuijian.title} + '-粤港娱乐新闻网'" >
 							</a>
 						</div>
 						<div class="right_nr">

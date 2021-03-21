@@ -6,7 +6,7 @@ CREATE TABLE `imgku` (
   `img_recordreal_url` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '真实存储地址',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_bin;
 
 CREATE TABLE `xinwen` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -23,4 +23,4 @@ CREATE TABLE `xinwen` (
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`),
   KEY `content_id_inx` (`content_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

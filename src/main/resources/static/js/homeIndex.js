@@ -1,7 +1,8 @@
 var app = new Vue({
     el:'#app',
     data:{
-        hosturl: 'http://localhost',
+        //hosturl: 'http://localhost',
+        hosturl: '',
         dataList:[]
         ,currPage: 1
         ,isloadShow: false
@@ -55,9 +56,12 @@ var app = new Vue({
                         }else{
                             app.isloadTextShow = true
                         }
+                    }else{
+                        app.isloadTextShow = true
+                        app.isloadShow = false
                     }
                 }else{
-                    console.log(response.data.message)
+                    //console.log(response.data.message)
                 }
             });
         }

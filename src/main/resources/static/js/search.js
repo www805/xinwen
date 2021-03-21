@@ -1,7 +1,8 @@
 var app = new Vue({
     el:'#app',
     data:{
-        hosturl: 'http://localhost',
+        //hosturl: 'http://localhost',
+        hosturl: '',
         dataList:[]
         ,currPage: 1
         ,pageSize: 5
@@ -59,7 +60,7 @@ var app = new Vue({
                     app.pages = response.data.data.pages
                     app.total = response.data.data.total
                 }else{
-                    console.log(response.data.message)
+                    //console.log(response.data.message)
                     app.isloadShow = false
                 }
             });

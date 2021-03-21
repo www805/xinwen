@@ -6,23 +6,34 @@ server:
 
 #mysq;
 spring:
+  homeUrl:
+  images:
+    filePath: /usr/local/uploadImage/
   application:
-    name: jiehuihui-web-body #指定服务名
+    name: xinwen-web-body #指定服务名
   datasource:
-    url: jdbc:mysql://154.92.18.217:3377/jiehuihui?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://47.119.158.164:3377/xinwen?useUnicode=true&characterEncoding=utf8
     username: root
-    password: jiehuihui520
+    password: Zhuang$2015
     driver-class-name: com.mysql.cj.jdbc.Driver
-  redis:
-    host: 154.92.18.217
-    port: 6379
-    password: jiehuihui520
+#  redis:
+#    host: 154.92.18.217
+#    port: 6379
+#    password: jiehuihui520
 #下面代码注册到nacos里面
 #  cloud:
 #    nacos:
 #      discovery:
 #        ###服务注册Nacos地址
 #        server-addr: 127.0.0.1:8848
+
+
+caching:
+  specs:
+    article:
+      # 单位（秒）
+      timeout: 3600
+      expireMode: 0
 
 
 #eureka:
