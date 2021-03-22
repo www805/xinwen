@@ -139,6 +139,9 @@ body{
 	width: 100%;
 	height: 100%;
 }
+.xinwen_img{
+	height: 122px;
+}
 .zhong_nr{
 	width: 72%;
 	position: relative;
@@ -455,5 +458,8 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 	}
 	.right_nr b a{
 		width: 180px;
+	}
+	.xinwen_img{
+		height: 100px;
 	}
 }

@@ -52,6 +52,7 @@ public class IndexServlceImpl implements IndexServlce {
         //获取推荐新闻
         UpdateWrapper<XinWenEntity> uwtuijian = new UpdateWrapper<>();
         uwtuijian.eq("status", 1);
+        uwtuijian.orderByDesc("create_time");
         uwtuijian.last("limit 4");
         List<XinWenEntity> tuijian = xinWenMapper.selectList(uwtuijian);
 
@@ -92,6 +93,7 @@ public class IndexServlceImpl implements IndexServlce {
     private List<XinWenEntity> getTuiJian(){
         UpdateWrapper<XinWenEntity> uw = new UpdateWrapper<>();
         uw.eq("status", 1);
+        uw.orderByDesc("create_time");
         uw.last("limit 4");
 
         List<XinWenEntity> xinWenEntities = xinWenMapper.selectList(uw);
