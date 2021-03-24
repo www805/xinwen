@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<title>粤港娱乐趣闻网</title>
+	<title>乐趣闻网</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="keywords" content="香港新闻,内地新闻,澳门新闻,广东新闻,粤港澳新闻,大湾区新闻,娱乐新闻,最新资讯,日本新闻,美国新闻,国际新闻">
 	<meta name="description" content="粤港澳新闻一网打尽,让您在这里就可以看到香港,内地,澳门,国际,日本,英国,美国等最新新闻资讯,全天24更新">
@@ -62,7 +62,7 @@
 					<div class="right_item" th:each="tuijian,tuijianStat : ${search.tuijian}">
 						<div class="right_img">
 							<a th:href="@{'/article/'+${tuijian.contentId}+'.html'}">
-								<img th:src="${homeUrl} + ${#strings.isEmpty(tuijian.imgurls)==false? #strings.indexOf(tuijian.imgurls, ',') >= 0? #strings.arraySplit(tuijian.imgurls, ',')[0] : tuijian.imgurls : '/img/load_log.png'}" th:alt="${tuijian.title} + '-粤港娱乐趣闻网'">
+								<img th:src="${homeUrl} + ${#strings.isEmpty(tuijian.imgurls)==false? #strings.indexOf(tuijian.imgurls, ',') >= 0? #strings.arraySplit(tuijian.imgurls, ',')[0] : tuijian.imgurls : '/img/load_log.png'}" th:alt="${tuijian.title} + '-乐趣闻网'">
 							</a>
 						</div>
 						<div class="right_nr">
