@@ -11,6 +11,7 @@
         <result property="content" column="content" jdbcType="VARCHAR"/>
         <result property="descriptionNr" column="description_nr" jdbcType="VARCHAR"/>
         <result property="viewNum" column="view_num" jdbcType="BIGINT"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
         <result property="scheduleTs" column="schedule_ts" jdbcType="VARCHAR"/>
         <result property="lastUpdateDatetime" column="last_update_datetime" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>

@@ -30,7 +30,7 @@ public class XinWenController {
     /**查询所有新闻*/
     @GetMapping("/getXinWenList")
     public RResult getXinWenList(GetXinWenListParam param) {
-        RResult<XinWenEntity> result = new RResult<>();
+        RResult result = new RResult<>();
         return xinWenService.getXinWenList (result, param);
     }
 
@@ -39,7 +39,7 @@ public class XinWenController {
      */
     @GetMapping("/getXinWenType")
     public RResult getXinWenType() {
-        RResult<XinWenEntity> result = new RResult<>();
+        RResult result = new RResult<>();
         return xinWenService.getXinWenType(result);
     }
 
@@ -49,16 +49,35 @@ public class XinWenController {
      */
     @GetMapping("/getXinWen/{id}")
     public RResult getXinWen(@PathVariable("id") String id) {
-        RResult<XinWenEntity> result = new RResult<>();
+        RResult result = new RResult<>();
 //        return xinWenService.getXinWen(result);
         return null;
     }
 
-
+    /**
+     * 搜索关键词新闻
+     * @param param
+     * @return
+     */
     @PostMapping("/getSearchXinWen")
     public RResult getSearchXinWen(@RequestBody GetSearchXinWenParam param) {
-        RResult<XinWenEntity> result = new RResult<>();
+        RResult result = new RResult<>();
         return xinWenService.getSearchXinWen(result, param);
     }
+
+
+    /**
+     * 修改推荐新闻
+     * @param id 文章id
+     * @param num 设置推荐1还是取消推荐0
+     * @return
+     */
+    @GetMapping("/updateTuiJianXinWen/{id}/{num}")
+    public RResult updateTuiJianXinWen(@PathVariable("id") String id, @PathVariable("num") int num) {
+        RResult result = new RResult<>();
+        return xinWenService.updateTuiJianXinWen(result, id, num);
+    }
+
+
 
 }

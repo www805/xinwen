@@ -100,4 +100,32 @@ public class XinWenServiceImpl implements XinWenService {
 
         return result;
     }
+
+    @Override
+    public RResult updateTuiJianXinWen(RResult result, String id, int num) {
+
+        if (num < 0 || num > 1) {
+            result.setMessage("输入的参数2有误！");
+            return result;
+        }
+        if(StringUtils.isBlank(id)){
+            result.setMessage("不能参数为空！");
+            return result;
+        }
+
+        //修改推荐文章状态
+        XinWenEntity xinWenEntity = new XinWenEntity();
+        xinWenEntity.setStatus(num);
+        UpdateWrapper uw = new UpdateWrapper<>();
+        uw.eq("content_id", id);
+        int update = xinWenMapper.update(xinWenEntity, uw);
+        result.changeToTrue(update);
+        if (update == 1) {
+            result.setMessage("修改成功");
+        }else{
+            result.setMessage("修改失败");
+        }
+
+        return result;
+    }
 }

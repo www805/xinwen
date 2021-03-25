@@ -19,4 +19,6 @@ public interface XinWenService {
     RResult getXinWenType(RResult result);
 
     RResult getSearchXinWen(RResult result, GetSearchXinWenParam param);
+
+    RResult updateTuiJianXinWen(RResult result, String id, int num);
 }
