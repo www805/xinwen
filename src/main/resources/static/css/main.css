@@ -138,6 +138,7 @@ body{
 .zhong_img img, .right_img img, .xinwen_img img{
 	width: 100%;
 	height: 100%;
+	border-radius: 6px;
 }
 .xinwen_img{
 	height: 122px;
