@@ -25,12 +25,15 @@
         select type from xinwen group by type
     </select>
 
+    <!--最近7天内的随机数据-->
     <select id="getXinWenRandom" resultMap="BaseResultMap">
         SELECT <include refid="baseSql"/>
         FROM
             xinwen
         WHERE
-            id IN (SELECT id FROM (SELECT id FROM xinwen ORDER BY RAND()
+            id IN (SELECT id FROM (SELECT id FROM xinwen
+             where date_sub( curdate( ), INTERVAL 7 DAY ) &lt; date( last_update_datetime )
+             ORDER BY RAND()
         <if test="pageNum != null">
             LIMIT #{pageNum}
         </if> ) t)

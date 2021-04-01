@@ -16,6 +16,7 @@ public interface XinWenMapper extends BaseMapper<XinWenEntity> {
 
     List<String> getXinWenType();
 
+    //最近7天内的随机数据
     List<XinWenEntity> getXinWenRandom(int pageNum);
 
     XinWenEntity getXinWenPrevious(Long contentId);

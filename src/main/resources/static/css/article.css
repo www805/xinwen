@@ -34,7 +34,10 @@
 }
 .xwimg{
     width: 500px;
-    border-radius: 6px;
+    border-radius: 8px;
+}
+.wz_main img{
+    transform: none;
 }
 
 @media only screen and (min-width: 501px) {

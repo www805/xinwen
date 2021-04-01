@@ -105,7 +105,8 @@
 								<a th:href="@{'/article/'+${tuijian.contentId}+'.html'}" th:title="${tuijian.title}" th:text="${tuijian.title}">南京抖音培训营：抖音变现8大玩法</a>
 							</b>
 							<p class="right_nr_time">
-								<span th:text="${tuijian.type}">国内</span>
+								<span th:text="${#strings.substring(tuijian.lastUpdateDatetime,0,#strings.indexOf(tuijian.lastUpdateDatetime,' ')) }">2021-01-19</span>
+<!--								<span th:text="${tuijian.type}">国内</span>-->
 							</p>
 						</div>
 					</div>
